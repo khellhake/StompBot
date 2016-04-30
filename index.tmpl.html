@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+    <head>
+
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src *  'unsafe-inline'; script-src *  'unsafe-inline'; media-src *">
+
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" href="css/_bundle.css?@@TIMESTAMP" />
+        <link rel="stylesheet" href="node_modules/angular-material/angular-material.css" />
+        <title>StompBot App</title>
+    </head>
+    <body ng-app="stompbot" layout="column" ng-controller="MainController as main">
+
+        <md-toolbar layout="row">
+            <div class="md-toolbar-tools topBar">
+                <md-button class="md-icon-button" aria-label="Menu" ng-click="main.toggleMenu()">
+                    <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+                </md-button>
+                <img src="img/logo_inapp.png" alt="Stomp Bot" class="logoMain" ng-click="main.goTo()">
+                <span flex></span>
+            </div>
+        </md-toolbar>
+
+        <div class="whiteframedemoBasicClassUsage searchWrap" ng-show="main.$location.path() === '/'">
+            <md-whiteframe class="md-whiteframe-3dp" layout layout-align="center center">
+                <md-input-container layout="row" flex md-no-float class="md-block searchPedals">
+                    <md-icon md-svg-src="img/icons/magnify.svg"></md-icon>
+                    <input type="text" placeholder="Search Companies" ng-model="query">
+                </md-input-container> 
+            </md-whiteframe>
+        </div>
+
+        <section flex layout="column">
+            <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-swipe-left="main.toggleMenu()" class="md-sidenav-left" md-component-id="left" ng-cloak>
+                <div layout="row">
+                    <span flex></span>
+                    <md-button ng-click="main.toggleMenu()" aria-label="close menu" class="md-primary">
+                        <md-icon md-svg-icon="img/icons/close.svg"></md-icon>
+                    </md-button>
+                </div>
+
+                <md-content class="sideMenu">
+                    <md-list>
+                        <md-list-item ng-click="main.goTo(); main.toggleMenu()">Home</md-list-item>
+                        <md-list-item ng-click="main.sendMail(); main.toggleMenu()">Want more pedals added?</md-list-item>
+                        <md-list-item ng-click="main.goTo('legal'); main.toggleMenu()">Legal Disclaimers</md-list-item>
+                    </md-list>
+                    <div class="bot"></div>
+                </md-content>
+                <div class="copyrightInfo">Created and maintained by:<br />Coast77 Studios, LLC.</div>
+            </md-sidenav>
+
+
+            <!-- Main Angular view -->
+            <div data-ng-view layout="column"></div>
+            
+        </section>
+
+        <div layout="row" class="bottomBar">
+            <div class="lock-size"  flex="50" layout-align="left center">
+                <md-fab-speed-dial md-open="false" md-direction="right" class="md-fling" ng-cloak>
+                <md-fab-trigger>
+                    <md-button aria-label="menu" class="md-fab fabShare">
+                        <md-icon md-svg-src="img/icons/share.svg"></md-icon>
+                    </md-button>
+                </md-fab-trigger>
+                <md-fab-actions>
+                    <md-button aria-label="Instagram" ng-click="main.openInsta()" class="md-fab md-raised md-mini">
+                        <md-icon md-svg-src="img/icons/instagram.svg" aria-label="Instagram"></md-icon>
+                    </md-button>
+                    <md-button aria-label="Send SMS Message" ng-click="sendSMS()" class="md-fab md-raised md-mini">
+                        <md-icon md-svg-src="img/icons/sms.svg" aria-label="Send SMS Message"></md-icon>
+                    </md-button>
+                </md-fab-actions>
+                </md-fab-speed-dial>
+            </div>
+            <md-button aria-label="Total" flex="50" layout-align="right center" class="selectedTotal">
+                Total: <span class="totalTxt" ng-bind="main.totalSelected"></span> mA
+            </md-button>
+        </div>
+
+        
+
+
+        <script type="text/javascript" src="js/libs/jquery.min.js"></script>
+        <script type="text/javascript" src="js/libs/fastclick.js"></script>
+        <script src="app/_bundle.js?@@TIMESTAMP"></script>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
