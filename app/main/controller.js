@@ -38,7 +38,7 @@ function Controller (mainService, $location, $mdSidenav, $window, $cordovaEmailC
 
 			// Store
 			localStorage.setItem('stompBotSelected', JSON.stringify(self.selectedArray));
-        } 
+        }
         // REMOVE FROM LIST
         else {
             self.selectedArray.splice(self.selectedArray.indexOf(pedal),1);

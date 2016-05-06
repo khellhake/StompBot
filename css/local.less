@@ -2,6 +2,7 @@
 html, body {margin:0; padding:0;}
 
 @import 'cordova.css';
+@import 'angular-material.min.css';
 
 .topBar {
 	border-top:20px solid #63160b;
@@ -26,6 +27,9 @@ html, body {margin:0; padding:0;}
 
 .pedalListWrap {
 	margin-bottom:69px;
+
+	md-list{padding:0 !important;}
+
 	.pedalList {
 		.ppower {
 			position: absolute;
@@ -103,9 +107,9 @@ md-progress-circular path {stroke:#7c1b0e;}
 }
 
 .bottomBar {
-	position: fixed; 
-	bottom:0; 
-	opacity: 0.9; 
+	position: fixed;
+	bottom:0;
+	opacity: 0.9;
 	width:100%;
 	z-index:3;
 	background-color:#bfb4aa;

@@ -5,18 +5,19 @@
     </div>
 
     <md-content data-ng-hide="home.loadingData" class="pedalListWrap">
-        <md-list>
-            <div ng-repeat="item in home.pedals | filter:query | orderBy: 'title'" class="pedalList">
-                <md-subheader class="md-sticky pcompany">{{item.title}}</md-subheader>
+     <md-list>
+       <div ng-repeat="item in home.pedals | filter:query | orderBy: 'title'" class="pedalList">
+           <md-subheader class="md-sticky pcompany">{{item.title}}</md-subheader>
 
-                <div ng-repeat="pedal in item.pedals">
-                    <md-list-item class="md-3-line" ng-click="main.selectRow(pedal)" ng-class="{selectedPedal: main.isSelected(pedal)}">
-                        {{pedal.name}}
-                        <span class="ppower">{{pedal.ma}}mA</span>
-                    </md-list-item>
-                    <md-divider ></md-divider>
-                </div>
-            </div>
-        </md-list>
+           <div ng-repeat="pedal in item.pedals | orderBy: 'name'">
+               <md-list-item class="md-3-line" ng-click="main.selectRow(pedal)" ng-class="{selectedPedal: main.isSelected(pedal)}">
+                   {{pedal.name}}
+                   <span class="ppower">{{pedal.ma}}mA</span>
+               </md-list-item>
+               <md-divider ></md-divider>
+           </div>
+       </div>
+     </md-list>
+
     </md-content>
 </div>

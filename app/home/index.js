@@ -5,5 +5,5 @@ module.exports = function ( module ) {
 
 	module
 		.factory( 'homeService', [ 'dataService', service ] )
-		.controller('homeController', ['homeService', '$cordovaSplashscreen', Controller]);
+		.controller('homeController', ['homeService', '$cordovaSplashscreen', '$rootScope', Controller]);
 };
